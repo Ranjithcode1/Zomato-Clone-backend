@@ -19,7 +19,7 @@ import Order from "./API/Orders/index";
 import Review from "./API/Reviews/index";
 import User from "./API/User/index";
 import MailService from "./API/Mail/index";
-import Payments from "./API/Payments/index"
+import Payments from "./API/Payments/index";
 
 //Database connection
 
@@ -53,7 +53,9 @@ zomato.use("/user", User);
 zomato.use("/mail", MailService);
 zomato.use("/payments", Payments);
 
-zomato.listen(process.env.PORT || 4000, () =>
+const port = process.env.PORT || 4000;
+
+zomato.listen(port, () =>
   ConnectDB()
     .then(() => console.log("Server is up and running"))
     .catch(() =>
